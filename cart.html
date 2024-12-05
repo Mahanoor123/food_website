@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <title>Cartpage</title>
+</head>
+
+<body>
+
+    <!----------------- Header Section ----------------->
+
+    <header class="header">
+        <nav id="navbar">
+            <img src="./Assets/Images/mealTimeLogo.png" class="logo">
+            <ul id="nav_menu">
+                <a href="./index.html">Home</a>
+                <a href="#">Deals & Offers</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="./login.html"><i class="fa fa-user"></i><span>Login</span></a>
+                <a href="#"><i class="fa-solid fa-phone"></i><span>Call Now</span></a>
+                <a href="./cart.html" id="cart"><i class="fa-solid fa-bag-shopping"></i><span
+                        id="cartCount">0</span></a>
+            </ul>
+            <i class="fa-solid fa-bars" id="ham_menu"></i>
+            <i class="fa-solid fa-xmark" id="ham_close"></i>
+        </nav>
+    </header>
+
+    <!----------------- Header Section ----------------->
+
+    <main>
+        <section class="cart_section">
+            <div class="cart_header">
+                <h1>My cart</h1>
+                <p>Cart items <span>(0)</span></p>
+            </div>
+            <div class="cart_details">
+                <div class="cart_title">
+                    <h4>Product</h4>
+                    <h4>Quantity</h4>
+                    <h4>Price</h4>
+                    <h4>Remove</h4>
+                </div>
+
+                <!-- <div class="cart_list"> -->
+                    <!-- <div class="product_details"> -->
+                        <!-- <img src="./Assets/Images/food11.jpg" width="50rem" height="50rem"> -->
+                        <!-- <div class="product_desc"> -->
+                            <!-- <h3>Creamy Salid</h3> -->
+                            <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, magni.</p> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="product_quantity"> -->
+                        <!-- <span>-</span><input type="number"><span>+</span> -->
+                    <!-- </div> -->
+                    <!-- <div class="product_price"> -->
+                        <!-- <p class="price">PKR 487.00</p> -->
+                    <!-- </div> -->
+                    <!-- <div class="product_remove"> -->
+                        <!-- <p class="Remove"><i class="fa-solid fa-xmark"></i></p> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </section>
+    </main>
+
+
+    <script src="./Assets/JS/index.js"></script>
+</body>
+
+</html>
