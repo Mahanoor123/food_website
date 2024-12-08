@@ -139,6 +139,26 @@ if (pageTitle === "Homepage") {
       title: "Creamy lasagna",
       price: "PKR 1620.80",
     },
+    {
+      image: "./Assets/Images/food17.jpg",
+      title: "Fish fry",
+      price: "PKR 1220.80",
+    },
+    {
+      image: "./Assets/Images/food18.jpg",
+      title: "Chilly fry with rice",
+      price: "PKR 678.80",
+    },
+    {
+      image: "./Assets/Images/food19.jpg",
+      title: "Fried potatoes",
+      price: "PKR 345.00",
+    },
+    {
+      image: "./Assets/Images/food20.jpg",
+      title: "Creamy museli pasta",
+      price: "PKR 650.99",
+    },
   ];
 
   for (var i = 0; i < foodItems.length; i++) {
