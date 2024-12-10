@@ -55,7 +55,6 @@ if (pageTitle === "Homepage") {
     currentImage.src = heroImages[currentIndex];
   }
 
-
   /*** Dynamic products generate ***/
 
   var foodItems = [
@@ -195,6 +194,9 @@ if (pageTitle === "Homepage") {
           itemDetails.price;
         previewDetails.querySelector(".detail_content p").textContent =
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, quas! Quod recusandae sunt natus error.";
+        previewDetails.querySelector(".detail_content .buttons").innerHTML = `
+                         <button class="buy" onclick="checkout()">Buy Now</button>
+                        <button class="cart" onclick="addToCart('${itemDetails.title}')">Add To Cart</button>`;
 
         previewDetails.classList.add("active");
       };
@@ -204,10 +206,96 @@ if (pageTitle === "Homepage") {
     previewContainer.style.display = "none";
   }
 
+  /*** Dynamic add to cart section ***/
+
+  var cartIcon = document.getElementById("cart");
+  var cartclose = document.querySelector(".cart_section .fa-xmark");
+  var cartTotal = document.querySelector(".cart_total");
+  var cartMenu = document.querySelector(".cart_menu");
+
+  cartIcon.addEventListener("click", function () {
+    document.querySelector(".cart_section").style.right = "0";
+  });
+
+  cartclose.addEventListener("click", function () {
+    document.querySelector(".cart_section").style.right = "-50vw";
+  });
+
   var counter = 0;
-  function addToCart() {
-    counter++;
-    document.getElementById("cartCount").innerText = counter;
+  var total = 0;
+  document.getElementById("cartCount").innerText = counter;
+
+  function addToCart(val) {
+    var foodItem = null;
+
+    for (var i = 0; i < foodItems.length; i++) {
+      if (foodItems[i].title === val) {
+        foodItem = foodItems[i];
+        break;
+      }
+    }
+
+    if (foodItem) {
+      document.querySelector(".cart_menu p").style.display = "none";
+      var cartItem = document.createElement("div");
+      cartItem.setAttribute("class", "cart_item");
+      cartItem.setAttribute("data-title", val);
+
+      var cartItemContent = `<div class="item_image">
+                        <img src="${foodItem.image}">
+                    </div>
+                    
+                    <div class="item_desc">
+                        <h4>${foodItem.title}</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    </div>
+                    <div class="item_quantity">
+                        <span>-</span> <input type="number"> <span>+</span>
+                    </div>
+                    <div class="item_price">
+                        ${foodItem.price}
+                    </div>
+                    <div class="item_remove">
+                        <i class="fa-solid fa-multiply" onclick="removeItem('${val}')"></i>
+                    </div>
+    `;
+      cartItem.innerHTML = cartItemContent;
+
+      cartMenu.appendChild(cartItem);
+      counter++;
+      document.getElementById("cartCount").innerText = counter;
+      document.querySelector(".cart_header span").innerText = counter;
+      total += parseFloat(foodItem.price.replace("PKR", "").trim());
+      cartTotal.innerText = "PKR " + total.toFixed(2);
+    }
+  }
+
+  function removeItem(val) {
+    var cartItem = document.querySelector(`.cart_item[data-title="${val}"]`);
+
+    var foodItem = null;
+
+    for (var i = 0; i < foodItems.length; i++) {
+      if (foodItems[i].title === val) {
+        foodItem = foodItems[i];
+        break;
+      }
+    } 
+
+    if (foodItem) {
+      total -= parseFloat(foodItem.price.replace("PKR", "").trim());
+      cartTotal.innerText = "PKR " + total.toFixed(2);
+      counter--;
+      document.getElementById("cartCount").innerText = counter;
+      document.querySelector(".cart_header span").innerText = counter;
+    }
+    cartMenu.removeChild(cartItem);
+  }
+
+  function checkout(){
+    cartMenu.innerHTML = "";
+    previewContainer.style.display = "none";
+    alert("Your order complete, Thanks for purchasing");
   }
 
   var mainImage = document.querySelector(".main_img img");
@@ -225,4 +313,212 @@ if (pageTitle === "Homepage") {
   smallImages[3].onclick = function () {
     mainImage.src = smallImages[3].src;
   };
+} else if (pageTitle === "Dealpage") {
+
+  var deals = [
+    {
+      image: "./Assets/Images/deal1.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal2.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal3.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal4.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal5.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal6.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal7.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal8.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal9.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal10.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal11.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal12.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal13.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal14.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal15.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+    {
+      image: "./Assets/Images/deal16.jpg",
+      title: "Super Hot Deal",
+      desc: {
+        item1: "4 large penne pasta",
+        item2: "3 chicken broast",
+        item3: "Mayo Garlic Sauce",
+        item4: "Regular drink",
+      },
+      button: "Avail Now",
+    },
+  ];
+
+  for (var i = 0; i < deals.length; i++) {
+    var deal = document.createElement("div");
+    deal.setAttribute("class", "deal");
+    var dealContent = `<div class="deal_img">
+                <img src="${deals[i].image}">
+            </div>
+            <div class="deal_content">
+                <h1>${deals[i].title}</h1>
+                <ul>
+                    <li>${deals[i].desc.item1}</li>
+                    <li>${deals[i].desc.item2}</li>
+                    <li>${deals[i].desc.item3}</li>
+                    <li>${deals[i].desc.item4}</li>
+                </ul>
+                <div class="buttons">
+                    <button onclick="checkout()">Avail Now</button>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>`;
+    deal.innerHTML = dealContent;
+
+    document.querySelector(".deals_display").appendChild(deal);
+  }
+  function checkout(){
+    alert("Your purchase complete, Thanks for purchasing")
+  }
 }

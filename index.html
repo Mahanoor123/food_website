@@ -21,10 +21,9 @@
                 <a href="./services.html">Services</a>
                 <a href="./about.html">About</a>
                 <a href="./contact.html">Contact</a>
-                <a href="./services.html"><i class="fa-solid fa-phone"></i><span>Order Online</span></a>
+                <a href="./deals.html"><i class="fa-solid fa-phone"></i><span>Order Online</span></a>
                 <a href="./login.html"><i class="fa fa-user"></i><span>Login</span></a>
-                <a href="./cart.html" id="cart"><i class="fa-solid fa-bag-shopping"></i><span
-                        id="cartCount">0</span></a>
+                <a id="cart"><i class="fa-solid fa-bag-shopping"></i><span id="cartCount">0</span></a>
             </ul>
             <i class="fa-solid fa-bars" id="ham_menu"></i>
             <i class="fa-solid fa-xmark" id="ham_close"></i>
@@ -98,7 +97,6 @@
             </div>
         </section>
 
-
         <!----------------- Products Detail Preview Section ----------------->
 
         <div class="products_preview">
@@ -127,12 +125,126 @@
                     <p>description</p>
                     <div class="price">price</div>
                     <div class="buttons">
-                        <button class="buy">Buy Now</button>
-                        <button class="cart" onclick="addToCart('${foodItems[i].title}')">Add To Cart</button>
                     </div>
                 </div>
             </div>
         </div>
+
+         <!----------------- Team Section ----------------->
+
+         <section class="team_section">
+            <h1 class="title">Team behind Test</h1>
+            <div class="team_display">
+                <div class="team">
+                    <div class="team_image">
+                        <img src="./Assets/Images/chef-pic1.jpg">
+                    </div>
+                    <div class="team_content">
+                        <h4>Jane Doe</h4>
+                        <p>Works since 10+ years, expert</p>
+                        <div class="socials">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="team">
+                    <div class="team_image">
+                        <img src="./Assets/Images/chef-pic2.jpg">
+                    </div>
+                    <div class="team_content">
+                        <h4>Jane Doe</h4>
+                        <p>Works since 10+ years, expert</p>
+                        <div class="socials">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="team">
+                    <div class="team_image">
+                        <img src="./Assets/Images/chef-pic3.jpg">
+                    </div>
+                    <div class="team_content">
+                        <h4>Jane Doe</h4>
+                        <p>Works since 10+ years, expert</p>
+                        <div class="socials">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="team">
+                    <div class="team_image">
+                        <img src="./Assets/Images/chef-pic4.jpg">
+                    </div>
+                    <div class="team_content">
+                        <h4>Jane Doe</h4>
+                        <p>Works since 10+ years, expert</p>
+                        <div class="socials">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!----------------- Category Section ----------------->
+
+        <section class="category_section">
+            <h1 class="title">Top categories</h1>
+            <div class="category_display">
+                <div class="category">
+                    <div class="category_image">
+                        <img src="./Assets/Images/category_bg3.jpg">
+                    </div>
+                    <div class="category_content">
+                        <div class="cat_content">
+                            <small>20% Discount</small>
+                            <h4>Continental Food</h4>
+                            <p>We provide the test of delightness</p>
+                            <button>Order Now</button>
+                        </div>
+                        <div class="cat_img">
+                            <img src="./Assets/Images/category.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category_image">
+                        <img src="./Assets/Images/category_bg2.jpg">
+                    </div>
+                    <div class="category_content">
+                        <div class="cat_content">
+                            <small>25% Discount</small>
+                            <h4>Bar'b Q Food</h4>
+                            <p>We provide the test of delightness</p>
+                            <button>Order Now</button>
+                        </div>
+                        <div class="cat_img">
+                            <img src="./Assets/Images/category1.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category_image">
+                        <img src="./Assets/Images/category_bg3.jpg">
+                    </div>
+                    <div class="category_content">
+                        <div class="cat_content">
+                            <small>20% Discount</small>
+                            <h4>Chinese Food</h4>
+                            <p>We provide the test of delightness</p>
+                            <button>Order Now</button>
+                        </div>
+                        <div class="cat_img">
+                            <img src="./Assets/Images/category2.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!----------------- Newsletter Section ----------------->
 
@@ -225,32 +337,15 @@
                 <p>Cart Items <span>0</span></p>
             </div>
             <div class="cart_menu">
-                <div class="cart_item">
-                    <div class="item_image">
-                        <img src="./Assets/Images/food19.jpg">
-                    </div>
-                    <div class="item_desc">
-                        <h4>Fried potatoes</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    </div>
-                    <div class="item_quantity">
-                        <span>-</span> <input type="number"> <span>+</span>
-                    </div>
-                    <div class="item_price">
-                        PKR 540.90
-                    </div>
-                    <div class="item_remove">
-                        <i class="fa-solid fa-multiply"></i>
-                    </div>
-                </div>
+                <p>You cart is empty now</p>
+                <!-- Items Displays dynamically -->
             </div>
             <div class="cart_footer">
                 <div class="total_amount">
                     <h5>Total</h5>
                     <div class="cart_total">$0.00</div>
                 </div>
-                <button class="checkout">Checkout</button>
-                <button class="view_cart">View Cart</button>
+                <button class="checkout" onclick="checkout()">Checkout</button>
             </div>
         </section>
 
